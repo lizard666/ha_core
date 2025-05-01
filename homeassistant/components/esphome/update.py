@@ -101,9 +101,12 @@ async def async_setup_entry(
         and dashboard.data.get(device_name)
     ):
         _LOGGER.debug(
-            "Adding update entity for %s (%s)",
+            "Adding update entity for %s (%s) - entry available: %s, dashboard available: %s, device in dashboard: %s",
             device_name,
             mac_address,
+            entry_data.available,
+            dashboard.last_update_success,
+            dashboard.data is not None and device_name in dashboard.data,
         )
         _async_setup_update_entity()
         return
