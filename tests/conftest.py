@@ -473,6 +473,7 @@ def reset_globals() -> Generator[None]:
     # Reset the template cache
     template.CACHED_TEMPLATE_LRU.clear()
     template.CACHED_TEMPLATE_NO_COLLECT_LRU.clear()
+    template._domain_states.cache_clear()
 
 
 @pytest.fixture(autouse=True, scope="session")
