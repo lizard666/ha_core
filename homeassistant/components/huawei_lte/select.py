@@ -23,7 +23,7 @@ from homeassistant.helpers.typing import UNDEFINED
 
 from . import Router
 from .const import DOMAIN, KEY_NET_NET_MODE
-from .entity import HuaweiLteBaseEntityWithDevice
+from .entity import HuaweiLteBaseInteractiveEntity
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -76,7 +76,7 @@ async def async_setup_entry(
     async_add_entities(selects, True)
 
 
-class HuaweiLteSelectEntity(HuaweiLteBaseEntityWithDevice, SelectEntity):
+class HuaweiLteSelectEntity(HuaweiLteBaseInteractiveEntity, SelectEntity):
     """Huawei LTE select entity."""
 
     entity_description: HuaweiSelectEntityDescription
